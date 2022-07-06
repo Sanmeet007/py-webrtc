@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark light;
+}
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.streams {
+  display: flex;
+  gap: 0.5rem;
+  isolation: isolate;
+}
+
+.streams .video {
+  aspect-ratio: 16/9;
+  flex-basis: 100%;
+  border-radius: 2px;
+  box-shadow: 1px 1px 10px 1px rgba(23, 23, 23, 0.1);
+  background-color: rgb(34, 34, 34);
+  position: relative;
+  overflow: hidden;
+}
+.streams .video video {
+  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.streams .video .cover {
+  position: absolute;
+  inset: 0;
+  background-color: rgb(43, 43, 45);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 200ms ease-in-out, visibilty 200ms ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+  visibility: hidden;
+}
+
+.streams .video:hover .cover {
+  opacity: 0.2;
+}
+.streams .loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  background-color: #333;
+  color: grey;
+  font-size: 2rem;
+  z-index: 2;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.reset-mp {
+  margin: 0;
+  padding: 0;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
